@@ -19,7 +19,7 @@
   <entry>
     <title>dev-c++入门</title>
     <url>/2024/05/13/c++%E5%85%A5%E9%97%A8-1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="C-简介"><a href="#C-简介" class="headerlink" title="C++ 简介"></a>C++ 简介</h2><p><img data-src="&quot;https://img2.baidu.com/it/u=2530448692,58272662&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=PNG?w=256&amp;h=256&quot;" alt="c++"> </p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="C-简介"><a href="#C-简介" class="headerlink" title="C++ 简介"></a>C++ 简介</h2><p> test<br><img data-src="&quot;https://img2.baidu.com/it/u=2530448692,58272662&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=PNG?w=256&amp;h=256&quot;" alt="c++"> </p>
 <p>C++ 是一种<strong>静态类型的</strong>、<strong>编译式的</strong>、<strong>通用的</strong>、<strong>大小写敏感的</strong>、<strong>不规则的编程语言</strong>，支持<strong>过程化编程</strong>、<strong>面向对象编程</strong>和<strong>泛型编程</strong>。 </p>
 <p>C++ 被认为是一种<strong>中级语言</strong>，它综合了<strong>高级语言</strong>和<strong>低级语言</strong>的特点。 </p>
 <p>C++ 是由 <em>Bjarne Stroustrup</em> 于 1979 年在新泽西州美利山贝尔实验室开始设计开发的。C++ 进一步扩充和完善了 C 语言，最初命名为带类的C，后来在 1983 年更名为 C++。 </p>
