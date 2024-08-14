@@ -48,7 +48,8 @@
   };
 </script>
 
-  <title>Arduino串口通信 | Hexo</title>
+  <title>Arduino串口通信 | Hexo
+</title>
   
 
 
@@ -187,82 +188,38 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content page posts-expand">
             
 
     
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/12/Arduino%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/logo.jpg">
-      <meta itemprop="name" content="Ericzc">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
+    
+    
+    <div class="post-block" lang="zh-CN">
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Arduino串口通信
-        </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
+<h1 class="post-title" itemprop="name headline">Arduino串口通信
+</h1>
 
-              <time title="创建时间：2024-08-12 00:00:00 / 修改时间：18:39:33" itemprop="dateCreated datePublished" datetime="2024-08-12T00:00:00+08:00">2024-08-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">学术</span></a>
-                </span>
-            </span>
-
+<div class="post-meta">
+  
+  <ul class="breadcrumb">
           
-            <span id="/2024/08/12/Arduino%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/" class="post-meta-item leancloud_visitors" data-flag-title="Arduino串口通信" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2024/08/12/Arduino%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/08/12/Arduino%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
+            <li><a href="/2024/">2024</a></li>
+            <li><a href="/2024/08/">08</a></li>
+            <li><a href="/2024/08/12/">12</a></li>
+            <li><a href="/2024/08/12/Arduino%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/">ARDUINO串口通信</a></li>
+            <li><a href="/2024/08/12/Arduino%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1//"></a></li>
+  </ul>
 
-        </div>
-      </header>
+</div>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
-        <h3 id="串口通讯原理"><a href="#串口通讯原理" class="headerlink" title="串口通讯原理"></a>串口通讯原理</h3><p>Arduino通讯串口：Arduino的串口通常称为UART或USART，通过0(RX)和1(TX)引脚以及USB 端口，来和其它设备进行通信。</p>
+      
+      
+      <div class="post-body">
+          <h3 id="串口通讯原理"><a href="#串口通讯原理" class="headerlink" title="串口通讯原理"></a>串口通讯原理</h3><p>Arduino通讯串口：Arduino的串口通常称为UART或USART，通过0(RX)和1(TX)引脚以及USB 端口，来和其它设备进行通信。</p>
 <p>UART（Universal Asynchronous Receiver/Transmitter）：UART是通用异步收发器，采用异步串行通信协议，通过信号线把需要发送的数据以二进制的形式发出，高电平为数据“1”，低电平为数据“0”。</p>
 <span id="more"></span>
 <p>通信传输线：串口通常会有三根线来完成通讯，分别是地线、发送线、接收线。串口通信是异步的，能够在一根线上发送数据同时在另一根线上接收数据，其他线用于握手。</p>
@@ -306,94 +263,24 @@
 <h3 id="串口通讯示例"><a href="#串口通讯示例" class="headerlink" title="串口通讯示例"></a>串口通讯示例</h3><p>处理一个简单的指令。 </p>
 <p>示例代码的解释：往串口每次输入一串指令“a1”后，Arduino返回“YES”。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">String str;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Serial.<span class="built_in">begin</span>(<span class="number">115200</span>);<span class="comment">// 设置波特率，上位机的波特率要保证相同，不然无法识别</span></span><br><span class="line">  str=<span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">100</span>);<span class="comment">//等待100ms=0.1s，加延时是因为Arduino从串口寄存器读取的速度比串口发送数据的速度快</span></span><br><span class="line">  <span class="keyword">while</span> (Serial.<span class="built_in">available</span>() &gt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    str += <span class="built_in">char</span>(Serial.<span class="built_in">read</span>());<span class="comment">// read是剪切，而不是复制</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(str==<span class="string">&quot;a1\0&quot;</span>)&#123;</span><br><span class="line">      Serial.<span class="built_in">println</span>(<span class="string">&quot;YES&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  str=<span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
 
-    </div>
-
-    
-    
-    
-      
-
-        <div class="reward-container">
-  <div>如果你觉得这篇文章对你有用，欢迎赞赏哦~</div>
-  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
-    打赏
-  </button>
-  <div id="qr" style="display: none;">
-      
-      <div style="display: inline-block;">
-        <img src="/images/wechatpay.png" alt="Ericzc 微信支付">
-        <p>微信支付</p>
       </div>
       
-      <div style="display: inline-block;">
-        <img src="/images/alipay.png" alt="Ericzc 支付宝">
-        <p>支付宝</p>
-      </div>
-
-  </div>
-</div>
-
-        
-
-  <div class="followme">
-    <p>欢迎关注我的其它发布渠道</p>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
-            <span class="icon">
-              <i class="fab fa-weixin"></i>
-            </span>
-
-            <span class="label">WeChat</span>
-          </a>
-        </div>
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/atom.xml">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-
-            <span class="label">RSS</span>
-          </a>
-        </div>
+      
+      
     </div>
-  </div>
-
-
-      <footer class="post-footer">
+    
+  <ul class="breadcrumb">
           
-          <div class="post-tags">
-              <a href="/tags/Arduino/" rel="tag"><i class="fa fa-tag"></i> Arduino</a>
-          </div>
+            <li><a href="/2024/">2024</a></li>
+            <li><a href="/2024/08/">08</a></li>
+            <li><a href="/2024/08/12/">12</a></li>
+            <li><a href="/2024/08/12/Arduino%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/">ARDUINO串口通信</a></li>
+            <li><a href="/2024/08/12/Arduino%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1//"></a></li>
+  </ul>
 
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2024/06/29/%E5%86%B2%E5%88%BACSP-J%E4%B9%8B%E6%95%B0%E5%AD%A6%E6%80%9D%E7%BB%B4/" rel="prev" title="冲刺CSP-J之数学思维">
-      <i class="fa fa-chevron-left"></i> 冲刺CSP-J之数学思维
-    </a></div>
-      <div class="post-nav-item"></div>
-    </div>
-      </footer>
     
     
-    <div>
     
-        <div style="text-align:center;color: #ccc;font-size:14px;">------------- 💖 🌞 本 文 结 束 😚 感 谢 您 的 阅 读 🌞 💖 -------------</div>
-    
-</div>
-    
-  </article>
-  
-  
-  
-
 
 
           </div>

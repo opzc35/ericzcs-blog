@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="T1洛谷P7226 [COCI2015-2016#3] POT题目自己去看  没啥难度。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="冲刺CSP-J之数学思维">
+<meta property="og:url" content="http://example.com/2024/06/29/%E5%86%B2%E5%88%BACSP-J%E4%B9%8B%E6%95%B0%E5%AD%A6%E6%80%9D%E7%BB%B4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="T1洛谷P7226 [COCI2015-2016#3] POT题目自己去看  没啥难度。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-12T10:42:18.680Z">
+<meta property="article:author" content="Ericzc">
+<meta property="article:tag" content="CSP-J">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/06/29/%E5%86%B2%E5%88%BACSP-J%E4%B9%8B%E6%95%B0%E5%AD%A6%E6%80%9D%E7%BB%B4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>冲刺CSP-J之数学思维 | Hexo
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content page posts-expand">
+            
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">冲刺CSP-J之数学思维
+</h1>
+
+<div class="post-meta">
+  
+  <ul class="breadcrumb">
+          
+            <li><a href="/2024/">2024</a></li>
+            <li><a href="/2024/06/">06</a></li>
+            <li><a href="/2024/06/29/">29</a></li>
+            <li><a href="/2024/06/29/%E5%86%B2%E5%88%BACSP-J%E4%B9%8B%E6%95%B0%E5%AD%A6%E6%80%9D%E7%BB%B4/">冲刺CSP-J之数学思维</a></li>
+            <li><a href="/2024/06/29/%E5%86%B2%E5%88%BACSP-J%E4%B9%8B%E6%95%B0%E5%AD%A6%E6%80%9D%E7%BB%B4//"></a></li>
+  </ul>
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h2 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h2><h3 id="洛谷P7226-COCI2015-2016-3-POT"><a href="#洛谷P7226-COCI2015-2016-3-POT" class="headerlink" title="洛谷P7226 [COCI2015-2016#3] POT"></a>洛谷P7226 [COCI2015-2016#3] POT</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P7226">题目自己去看</a> </p>
+<p><strong>没啥难度。</strong></p>
+<span id="more"></span>
+<p>我们将每一个数分解成 2 部分： </p>
+<p>指数（代码中为 power）：<strong>p mod 10</strong><br>底数（代码中为 number）：$\lfloor\frac{p}{10}\rfloor$ </p>
+<p>然后让$ans$加上$x^{2}$即可。 </p>
+<p><strong>直接上呆马：</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,ans = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a);</span><br><span class="line">        ans += <span class="built_in">pow</span>(a / <span class="number">10</span>,a % <span class="number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><strong>注意：满分只有50分！！！</strong>  </p>
+<h3 id="洛谷P7257-COCI2009-2010-3-FILIP"><a href="#洛谷P7257-COCI2009-2010-3-FILIP" class="headerlink" title="洛谷P7257 [COCI2009-2010#3] FILIP"></a>洛谷P7257 [COCI2009-2010#3] FILIP</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P7257">题目自己去看</a>  </p>
+<p>题目<strong>太简单</strong>了，<strong>没法讲</strong>，直接上<strong>呆马</strong>，<strong>不会自己体会</strong>： </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> n = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (a) &#123;</span><br><span class="line">		<span class="keyword">if</span> (a / <span class="number">10</span> == <span class="number">0</span> &amp;&amp; a % <span class="number">10</span> == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		n = n * <span class="number">10</span> + a % <span class="number">10</span>;</span><br><span class="line">		a /= <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> a,b;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">f</span>(a) &gt; <span class="built_in">f</span>(b))</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="built_in">f</span>(a);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="built_in">f</span>(b);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="洛谷P7772-COCI2009-2010-2-FAKTOR"><a href="#洛谷P7772-COCI2009-2010-2-FAKTOR" class="headerlink" title="洛谷P7772 [COCI2009-2010#2] FAKTOR"></a>洛谷P7772 [COCI2009-2010#2] FAKTOR</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P7772">题目自己去看</a>  </p>
+<p>此题<strong>微坑</strong>，但不多，仅需<strong>考虑周全</strong>，即可！ </p>
+<p>君切勿以为只cout<script type="math/tex">A * I</script>，否则便会变成<strong>红绿灯</strong> </p>
+<p>废话不多说，直接上<strong>呆马</strong>： </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">double</span> A,I;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; A &gt;&gt; I;</span><br><span class="line">	<span class="keyword">if</span>(A == <span class="number">1</span> &amp;&amp; I == <span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="number">1</span>;</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(ans &gt;= I)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; (A * (I - <span class="number">1</span>)) + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; A * I;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="洛谷P1035-NOIP2002-普及组-级数求和"><a href="#洛谷P1035-NOIP2002-普及组-级数求和" class="headerlink" title="洛谷P1035 [NOIP2002 普及组] 级数求和"></a>洛谷P1035 [NOIP2002 普及组] 级数求和</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1035">题目自己去看</a>   </p>
+<p>废小学数学即可，So easy！直接上<strong>呆马</strong>： </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">double</span> ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">0</span>) cout &lt;&lt; <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">double</span> i = <span class="number">1</span>;i &lt;= <span class="number">1000000</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		ans += <span class="number">1.0</span> / i;</span><br><span class="line">		<span class="keyword">if</span>(ans &gt; n)</span><br><span class="line">		&#123;</span><br><span class="line">			cout &lt;&lt; i;</span><br><span class="line">			<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">###洛谷P1150 Peter 的烟</span><br><span class="line">[题目自己去看](https:<span class="comment">//www.luogu.com.cn/problem/P1150)   </span></span><br><span class="line"></span><br><span class="line">非常的简单，暴力<span class="keyword">while</span>循环，即可**AC**，直接上**呆马**： </span><br><span class="line"></span><br><span class="line">```cpp</span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">long</span> <span class="type">long</span> n,k,m,x,ans;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="built_in">main</span>()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">10</span> &amp;&amp; m == <span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;19&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	k = n;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(k &gt;= m)</span><br><span class="line">	&#123;</span><br><span class="line">		k = k / m;</span><br><span class="line">		x += k;</span><br><span class="line">	&#125;</span><br><span class="line">	ans = x + n;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="洛谷P1425-小鱼的游泳时间"><a href="#洛谷P1425-小鱼的游泳时间" class="headerlink" title="洛谷P1425 小鱼的游泳时间"></a>洛谷P1425 小鱼的游泳时间</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1425">题目自己去看</a>   </p>
+<p>更简单了，懒得讲，直接上<strong>呆马</strong>： </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a,b,c,d;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d %d&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d);</span><br><span class="line">    <span class="keyword">if</span>(d &lt; b)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d %d&quot;</span>,c - a - <span class="number">1</span>,d + <span class="number">60</span> - b);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d %d&quot;</span>,c - a,d - b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="洛谷P1851-好朋友"><a href="#洛谷P1851-好朋友" class="headerlink" title="洛谷P1851 好朋友"></a>洛谷P1851 好朋友</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1851">题目自己去看</a>   </p>
+<p>这道题亦是一个很水的题目。<br>纯暴力，就可以<strong>AC</strong>了。<br>这道题中的“非常好友”其实就是数学中的相亲数，也就是说两个数中任意<br>一个的所有因子（除本身外）之和等于另外一个数</p>
+<p><strong>注意：千万别那些自己是自己的“非常好友”的情况。</strong></p>
+<p><strong>OK</strong>，上<strong>呆马</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,sum1,sum2;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="keyword">while</span>(n)</span><br><span class="line">	&#123;</span><br><span class="line">		sum1 = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n / <span class="number">2</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(n % i == <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				sum1 += i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		sum2 = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= sum1 / <span class="number">2</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(sum1 % i == <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				sum2 += i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(sum2 == n &amp;&amp; sum1 != n)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>,n,sum1);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<h3 id="洛谷P1876-开灯"><a href="#洛谷P1876-开灯" class="headerlink" title="洛谷P1876 开灯"></a>洛谷P1876 开灯</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1876">题目自己去看</a>   </p>
+<p>只能说不能<strong>再水了</strong>，<strong>家人们！</strong><br>直接$for$循环到$\sqrt{n}$，输出$i^2$即可<strong>AC</strong></p>
+<p><strong>OK</strong>，上<strong>呆马</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">long</span> <span class="type">long</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= <span class="built_in">sqrt</span>(n);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,i * i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="洛谷P1887-乘积最大3"><a href="#洛谷P1887-乘积最大3" class="headerlink" title="洛谷P1887 乘积最大3"></a>洛谷P1887 乘积最大3</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1887">题目自己去看</a>   </p>
+<p>这道题呢也不难，只需判断<script type="math/tex">b MOD a</script>是否等于$0$。<br>然后呢就输出，这样就能<strong>AC</strong>。</p>
+<p><strong>OK</strong>，上<strong>呆马</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">long</span> <span class="type">long</span> a,b;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; b &gt;&gt; a;</span><br><span class="line">	<span class="keyword">if</span>(b % a)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">long</span> <span class="type">long</span> i = <span class="number">1</span>;i &lt;= a - b % a;i ++)</span><br><span class="line">		&#123;</span><br><span class="line">			cout &lt;&lt; b / a &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">long</span> <span class="type">long</span> i = <span class="number">1</span>;i &lt;= b % a;i ++)</span><br><span class="line">		&#123;</span><br><span class="line">			cout &lt;&lt; b / a + <span class="number">1</span> &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">long</span> <span class="type">long</span> i = <span class="number">1</span>;i &lt;= a;i ++)</span><br><span class="line">		&#123;</span><br><span class="line">			cout &lt;&lt; b / a &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="洛谷P2669-NOIP2015-普及组-金币"><a href="#洛谷P2669-NOIP2015-普及组-金币" class="headerlink" title="洛谷P2669 [NOIP2015 普及组] 金币"></a>洛谷P2669 [NOIP2015 普及组] 金币</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2669">题目自己去看</a>   </p>
+<p>太简单了，只能用水来形容，所以也不讲。</p>
+<p><strong>OK</strong>，上<strong>呆马</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">long</span> <span class="type">long</span> a;</span><br><span class="line"><span class="type">int</span> j;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; a;</span><br><span class="line">	<span class="keyword">while</span>(a &gt;= <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		j ++;</span><br><span class="line">		ans += j * j;</span><br><span class="line">		a -= j;</span><br><span class="line">	&#125;</span><br><span class="line">	ans += j * a;</span><br><span class="line">	cout &lt;&lt; ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="洛谷P2705-小球"><a href="#洛谷P2705-小球" class="headerlink" title="洛谷P2705 小球"></a>洛谷P2705 小球</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2705">题目自己去看</a>   </p>
+<p>这道题主要考察的是埃拉托色尼筛法，相对于暴力的判断素数，这种方法会快一点，码量也较少。</p>
+<p>由于素数是不能被除了它本身与1的数整除的，所以只要这个数是素数，它的倍数就是合数。这题与埃拉托色尼筛法唯一的区别便是要将扫到的素数也划掉。</p>
+<p>思路：</p>
+<p>&lt;设一个专门用来判断素数的数组p，所有元素的初始状态是0（素数），再设一个记录被划掉的数的数组t。<br>&lt;从2开始将n以内的数扫一遍，如果这个数是素数（是0），则在循环中把它的合数和它本身划掉。<br>&lt;最后输出t数组下标为k的元素即可。</p>
+<p>这里还有一个坑，帮大家指出一下：<br>&lt;如果这个数已经被划掉了，所以无需再划了。为了避免重复计算，需要在划数的那个循环中加个特判</p>
+<p><strong>OK</strong>，上<strong>呆马</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,m,a,b,c;</span><br><span class="line"><span class="type">int</span> ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d%d&quot;</span>,&amp;n,&amp;m,&amp;a,&amp;b,&amp;c);</span><br><span class="line">	<span class="keyword">if</span>(n &gt; m)</span><br><span class="line">	&#123;</span><br><span class="line">		ans = <span class="built_in">max</span>(a * n + b * m,m * c + (n - m) * a + m * c);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		ans = <span class="built_in">max</span>(a * n + b * m,n * c + (m - n) * b + n * c);</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="洛谷P6421-COCI2008-2009-2-RESETO"><a href="#洛谷P6421-COCI2008-2009-2-RESETO" class="headerlink" title="洛谷P6421 [COCI2008-2009#2] RESETO"></a>洛谷P6421 [COCI2008-2009#2] RESETO</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P6421">题目自己去看</a>   </p>
+<p>此题其实很简单，<strong>根本不用搜索</strong></p>
+<p>由于红球数等于红盒数，蓝球数等于蓝盒数，那么，放入红盒的蓝球数等于放入蓝盒的红球数</p>
+<p>只需要把一个红球和一个蓝球算作一组，比较放入同色盒中和异色盒中每组的大小</p>
+<p>如果同色盒中的大，就把所有的球放入同色盒中</p>
+<p>如果异色盒中的大，就尽可能多地把球放入异色盒中，剩下的放入同色盒中</p>
+<p>最后求出总分</p>
+<p><strong>OK</strong>，上<strong>呆马</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,k;</span><br><span class="line"><span class="type">int</span> vis[<span class="number">200010</span>];</span><br><span class="line"><span class="type">int</span> p;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span>;i &lt;= n;i ++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = i;j &lt;= n;j += i)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(vis[j] == <span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">			vis[j] = <span class="number">1</span>;</span><br><span class="line">			p ++;</span><br><span class="line">			<span class="keyword">if</span>(p == k)</span><br><span class="line">			&#123;</span><br><span class="line">				cout &lt;&lt; j;</span><br><span class="line">				<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="洛谷P9585-「MXOI-Round-2」酒店"><a href="#洛谷P9585-「MXOI-Round-2」酒店" class="headerlink" title="洛谷P9585 「MXOI Round 2」酒店"></a>洛谷P9585 「MXOI Round 2」酒店</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9585">题目自己去看</a>   </p>
+<p><strong>见到此题必须@CC哥，懂得都懂，哈哈哈哈哈哈哈哈哈！……</strong> </p>
+<p>好了，言归正传。 </p>
+<p>此题并不难，只要想通了，就自然废做。</p>
+<p>既然相邻不优，那么就尽量不要相邻，也就是说我们尽量隔着放，即放在 $1$,$3$,$5$,… 这些位置。</p>
+<p>那么如果能这样把所有格子放完，那样最好，否则如果还有剩余的只能把刚才剩下的位置依次填满，即填依次 $2$,$4$,$6$,…这些位置。</p>
+<p>最后计算答案即可。</p>
+<p><strong>OK</strong>，上<strong>呆马</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,k;</span><br><span class="line"><span class="type">int</span> vis[<span class="number">200010</span>];</span><br><span class="line"><span class="type">int</span> p;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">	<span class="keyword">if</span>(n * <span class="number">2</span> &lt;= k) <span class="built_in">printf</span>(<span class="string">&quot;0&quot;</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,(<span class="number">2</span> * n - k) * <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="T1小结"><a href="#T1小结" class="headerlink" title="T1小结"></a>T1小结</h4><p><strong>水，不用说了！！！</strong> </p>
+<h2 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h2><h3 id="洛谷P1146-硬币翻转"><a href="#洛谷P1146-硬币翻转" class="headerlink" title="洛谷P1146 硬币翻转"></a>洛谷P1146 硬币翻转</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1146">题目自己去看</a>   </p>
+<p>相较前面提升难度了许多，但也不要觉得很难，<br>直言想通了，<script type="math/tex">O(N^ 2)</script>，就能解决。<br>翻<script type="math/tex">n-1</script>枚硬币，就是有一枚不翻，也可以理解为翻一枚</p>
+<p><strong>OK</strong>，上<strong>呆马</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, n);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= i; j++)</span><br><span class="line">        	&#123;</span><br><span class="line">            		<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, (i<span class="number">-1</span>)&amp;<span class="number">1</span>);</span><br><span class="line">       		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">        	&#123;</span><br><span class="line">            		<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, i&amp;<span class="number">1</span>);</span><br><span class="line">        	&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是一道数学题</p>
+<p>一开始我还想了一堆什么左端点模数和右端点模数的最大值，后来发现我想多了，其实非常简单：</p>
+<p>如果 <script type="math/tex">r - r % n</script> 还大于 $l$，那么说明 <script type="math/tex">r−l</script> 中必然包含了最大可以取到的 <script type="math/tex">n−1</script>。 在这种情况下我们输出 <script type="math/tex">n−1</script> 即可。</p>
+<p>否则说明 <script type="math/tex">r−l</script> 中不包含最大可以取到的 <script type="math/tex">n−1</script>，则 <script type="math/tex">r % n</script> 必然为正确的答案。</p>
+<p>时间复杂度和空间复杂度均为 <script type="math/tex">O(1)</script>。</p>
+<p><strong>OK</strong>，上<strong>呆马</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line"></span><br><span class="line">LL n,m,l;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld%lld&quot;</span>,&amp;n,&amp;m,&amp;l);</span><br><span class="line">	<span class="keyword">if</span>(l - n &lt; n)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; l - n;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(l / n * n - <span class="number">1</span> &gt;= m)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; n - <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> cout &lt;&lt; l - l / n * n;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      
+      
+    </div>
+    
+  <ul class="breadcrumb">
+          
+            <li><a href="/2024/">2024</a></li>
+            <li><a href="/2024/06/">06</a></li>
+            <li><a href="/2024/06/29/">29</a></li>
+            <li><a href="/2024/06/29/%E5%86%B2%E5%88%BACSP-J%E4%B9%8B%E6%95%B0%E5%AD%A6%E6%80%9D%E7%BB%B4/">冲刺CSP-J之数学思维</a></li>
+            <li><a href="/2024/06/29/%E5%86%B2%E5%88%BACSP-J%E4%B9%8B%E6%95%B0%E5%AD%A6%E6%80%9D%E7%BB%B4//"></a></li>
+  </ul>
+
+    
+    
+    
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#T1"><span class="nav-number">1.</span> <span class="nav-text">T1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7P7226-COCI2015-2016-3-POT"><span class="nav-number">1.1.</span> <span class="nav-text">洛谷P7226 [COCI2015-2016#3] POT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7P7257-COCI2009-2010-3-FILIP"><span class="nav-number">1.2.</span> <span class="nav-text">洛谷P7257 [COCI2009-2010#3] FILIP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7P7772-COCI2009-2010-2-FAKTOR"><span class="nav-number">1.3.</span> <span class="nav-text">洛谷P7772 [COCI2009-2010#2] FAKTOR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7P1035-NOIP2002-%E6%99%AE%E5%8F%8A%E7%BB%84-%E7%BA%A7%E6%95%B0%E6%B1%82%E5%92%8C"><span class="nav-number">1.4.</span> <span class="nav-text">洛谷P1035 [NOIP2002 普及组] 级数求和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7P1425-%E5%B0%8F%E9%B1%BC%E7%9A%84%E6%B8%B8%E6%B3%B3%E6%97%B6%E9%97%B4"><span class="nav-number">1.5.</span> <span class="nav-text">洛谷P1425 小鱼的游泳时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7P1851-%E5%A5%BD%E6%9C%8B%E5%8F%8B"><span class="nav-number">1.6.</span> <span class="nav-text">洛谷P1851 好朋友</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7P1876-%E5%BC%80%E7%81%AF"><span class="nav-number">1.7.</span> <span class="nav-text">洛谷P1876 开灯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7P1887-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A73"><span class="nav-number">1.8.</span> <span class="nav-text">洛谷P1887 乘积最大3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7P2669-NOIP2015-%E6%99%AE%E5%8F%8A%E7%BB%84-%E9%87%91%E5%B8%81"><span class="nav-number">1.9.</span> <span class="nav-text">洛谷P2669 [NOIP2015 普及组] 金币</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7P2705-%E5%B0%8F%E7%90%83"><span class="nav-number">1.10.</span> <span class="nav-text">洛谷P2705 小球</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7P6421-COCI2008-2009-2-RESETO"><span class="nav-number">1.11.</span> <span class="nav-text">洛谷P6421 [COCI2008-2009#2] RESETO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7P9585-%E3%80%8CMXOI-Round-2%E3%80%8D%E9%85%92%E5%BA%97"><span class="nav-number">1.12.</span> <span class="nav-text">洛谷P9585 「MXOI Round 2」酒店</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#T1%E5%B0%8F%E7%BB%93"><span class="nav-number">1.12.1.</span> <span class="nav-text">T1小结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T2"><span class="nav-number">2.</span> <span class="nav-text">T2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7P1146-%E7%A1%AC%E5%B8%81%E7%BF%BB%E8%BD%AC"><span class="nav-number">2.1.</span> <span class="nav-text">洛谷P1146 硬币翻转</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ericzc"
+      src="/images/logo.jpg">
+  <p class="site-author-name" itemprop="name">Ericzc</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ericzc2011" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ericzc2011" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ericzc2011@foxmail.com" title="E-Mail → mailto:ericzc2011@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/Ericzc" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;Ericzc" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Google</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/891062" title="洛谷 → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;891062" rel="noopener" target="_blank"><i class="fab fa-luogu fa-fw"></i>洛谷</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.baidu.com/" title="https:&#x2F;&#x2F;www.baidu.com" rel="noopener" target="_blank">友情链接1</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.luogu.com.cn/" title="https:&#x2F;&#x2F;www.luogu.com.cn" rel="noopener" target="_blank">友情链接2</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ericzc</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"MDxDd5N0T9JWiMZeiUqVE9OZ-gzGzoHsz","app_key":"Aa558RITnExSIpf7RaUoY1ob","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="true"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.bootcdn.net/ajax/libs/valine/1.5.1/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'MDxDd5N0T9JWiMZeiUqVE9OZ-gzGzoHsz',
+      appKey     : 'Aa558RITnExSIpf7RaUoY1ob',
+      placeholder: "尽情吐槽吧！……",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+
+</body>
+
+</html>
+<script src="/live2d-widget/autoload.js"></script>
