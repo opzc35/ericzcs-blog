@@ -89,6 +89,7 @@
     <url>/2024/06/29/%E5%86%B2%E5%88%BACSP-J%E4%B9%8B%E6%95%B0%E5%AD%A6%E6%80%9D%E7%BB%B4/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h2><h3 id="洛谷P7226-COCI2015-2016-3-POT"><a href="#洛谷P7226-COCI2015-2016-3-POT" class="headerlink" title="洛谷P7226 [COCI2015-2016#3] POT"></a>洛谷P7226 [COCI2015-2016#3] POT</h3><p><a href="https://www.luogu.com.cn/problem/P7226">题目自己去看</a> </p>
 <p><strong>没啥难度。</strong></p>
+<span id="more"></span>
 <p>我们将每一个数分解成 2 部分： </p>
 <p>指数（代码中为 power）：<strong>p mod 10</strong><br>底数（代码中为 number）：$\lfloor\frac{p}{10}\rfloor$ </p>
 <p>然后让$ans$加上$x^{2}$即可。 </p>
@@ -5137,6 +5138,60 @@
       </categories>
       <tags>
         <tag>CSP-S</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Arduino串口通信</title>
+    <url>/2024/08/12/Arduino%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="串口通讯原理"><a href="#串口通讯原理" class="headerlink" title="串口通讯原理"></a>串口通讯原理</h3><p>Arduino通讯串口：Arduino的串口通常称为UART或USART，通过0(RX)和1(TX)引脚以及USB 端口，来和其它设备进行通信。</p>
+<p>UART（Universal Asynchronous Receiver/Transmitter）：UART是通用异步收发器，采用异步串行通信协议，通过信号线把需要发送的数据以二进制的形式发出，高电平为数据“1”，低电平为数据“0”。</p>
+<span id="more"></span>
+<p>通信传输线：串口通常会有三根线来完成通讯，分别是地线、发送线、接收线。串口通信是异步的，能够在一根线上发送数据同时在另一根线上接收数据，其他线用于握手。</p>
+<p>数据帧：Arduino用Serial.print和Serial.println函数发送数据时候，其实是发出一连串数字信号，这些数字信号称为数据帧。数据帧通常由四个部分组成，分别是起始位、数据位、校验位和停止位。</p>
+<blockquote>
+<p>起始位：数据帧开始传输的信号，通常起始位电平为低电平。<br>数据位：包含了实际发送的数据，Arduino默认使用8位数据，每次可以传输1B数据。<br>校验位：数据检错的方式，可以设置为奇校验和偶校验，Arduino默认无校验位。<br>停止位：表示该段数据帧传输结束，通常停止位都是高电平。</p>
+</blockquote>
+<p>串口通讯缓冲区：Arduino的USB端口有串口寄存器，可以用来暂存电脑从USB发送的数据。Arduino从串口寄存器读取的速度比串口发送数据的速度快，所以串口通讯读取数据前需要加一定延时。和电脑通信的时候，Arduino UNO的串口寄存器空间默认是63帧的数据帧大小，超出后信息会挤掉前面的信息。</p>
+<h3 id="串口通讯函数"><a href="#串口通讯函数" class="headerlink" title="串口通讯函数"></a>串口通讯函数</h3><p>Serial 类：通过 Serial 类来使用开发板上的UART串口，只需要指定波特率，就能使用了。</p>
+<p>波特率（Baud Rate）：在信息传输通道中，携带数据信息的信号单元叫码元，单位时间内通过信道传输的码元数称为码元传输速率，简称波特率。常用的波特率为9600、115200、4800等，波特率越大表明通信的速率越快。。当传输的码元信息量刚好为1比特的时候，波特率等于比特率。通信双方需要使用一致的的波特率才能正常通信。</p>
+<p><strong>Serial.begin()</strong> </p>
+<p>函数作用：开启串口。<br>使用方法：speed为波特率；config为设置数据位、校验位和停止位。</p>
+<blockquote>
+<p>Serial.begin(speed)<br>Serial.begin(speed, config)</p>
+</blockquote>
+<p><strong>Serial.end()</strong> </p>
+<p>函数作用：禁止串口传输，此时串口0(RX)和1(TX)引脚可以作为数字引脚使用。</p>
+<p><strong>Serial.print()</strong> </p>
+<p>函数作用：串口输出数据，写入字符数据到串口。<br>使用方法：val是打印的值；config输出数据格式，BIN(二进制)、OCT(八进制)、DEC(十进制)、HEX(十六进制)等。</p>
+<blockquote>
+<p>Serial.print(val)<br>Serial.print(val, format) </p>
+</blockquote>
+<p><strong>Serial.println()</strong> </p>
+<p>函数作用：串口输出数据并换行。<br>使用方法：</p>
+<blockquote>
+<p>Serial.println(val)<br>Serial.println(val, format) </p>
+</blockquote>
+<p><strong>Serial.available()</strong> </p>
+<p>函数作用：判断串口缓冲区的状态，返回从串口缓冲区读取的字节数。</p>
+<p><strong>Serial.read()</strong> </p>
+<p>函数作用：读取串口数据，一次读一个字符，读完后删除已读数据；当没有可读数据时返回-1，整数类型。</p>
+<p><strong>Serial.peek()</strong> </p>
+<p>函数作用：读取串口数据，一次读一个字符，读完后不删除；当没有可读数据时返回-1，整数类型。。</p>
+<p><strong>Serial.readString()</strong> </p>
+<p>函数作用：每次读取一个字符串，返回一个String类型。</p>
+<p><strong>Serial.readStringUntil()</strong> </p>
+<p>函数作用：每次读取一个字符串，知道遇到截止字符，返回一个String类型。<br>使用方法：inByte为截止字符。</p>
+<blockquote>
+<p>Serial.readStringUntil(inByte)</p>
+</blockquote>
+<h3 id="串口通讯示例"><a href="#串口通讯示例" class="headerlink" title="串口通讯示例"></a>串口通讯示例</h3><p>处理一个简单的指令。 </p>
+<p>示例代码的解释：往串口每次输入一串指令“a1”后，Arduino返回“YES”。<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">String str;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Serial.<span class="built_in">begin</span>(<span class="number">115200</span>);<span class="comment">// 设置波特率，上位机的波特率要保证相同，不然无法识别</span></span><br><span class="line">  str=<span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">100</span>);<span class="comment">//等待100ms=0.1s，加延时是因为Arduino从串口寄存器读取的速度比串口发送数据的速度快</span></span><br><span class="line">  <span class="keyword">while</span> (Serial.<span class="built_in">available</span>() &gt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    str += <span class="built_in">char</span>(Serial.<span class="built_in">read</span>());<span class="comment">// read是剪切，而不是复制</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(str==<span class="string">&quot;a1\0&quot;</span>)&#123;</span><br><span class="line">      Serial.<span class="built_in">println</span>(<span class="string">&quot;YES&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  str=<span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>学术</category>
+      </categories>
+      <tags>
+        <tag>Arduino</tag>
       </tags>
   </entry>
 </search>
