@@ -5143,7 +5143,8 @@
   <entry>
     <title>Arduino串口通信</title>
     <url>/2024/08/12/Arduino%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="串口通讯原理"><a href="#串口通讯原理" class="headerlink" title="串口通讯原理"></a>串口通讯原理</h3><p>Arduino通讯串口：Arduino的串口通常称为UART或USART，通过0(RX)和1(TX)引脚以及USB 端口，来和其它设备进行通信。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="我的博客"><a href="#我的博客" class="headerlink" title="我的博客"></a>我的博客</h1><p>这是一个 Font Awesome 图标示例：<i class="fas fa-camera"></i></p>
+<h3 id="串口通讯原理"><a href="#串口通讯原理" class="headerlink" title="串口通讯原理"></a>串口通讯原理</h3><p>Arduino通讯串口：Arduino的串口通常称为UART或USART，通过0(RX)和1(TX)引脚以及USB 端口，来和其它设备进行通信。</p>
 <p>UART（Universal Asynchronous Receiver/Transmitter）：UART是通用异步收发器，采用异步串行通信协议，通过信号线把需要发送的数据以二进制的形式发出，高电平为数据“1”，低电平为数据“0”。</p>
 <span id="more"></span>
 <p>通信传输线：串口通常会有三根线来完成通讯，分别是地线、发送线、接收线。串口通信是异步的，能够在一根线上发送数据同时在另一根线上接收数据，其他线用于握手。</p>
