@@ -5195,4 +5195,15 @@
         <tag>Arduino</tag>
       </tags>
   </entry>
+  <entry>
+    <title>hello world</title>
+    <url>/2024/05/10/test/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><span id="more"></span>]]></content>
+      <categories>
+        <category>init</category>
+      </categories>
+      <tags>
+        <tag>其他</tag>
+      </tags>
+  </entry>
 </search>
